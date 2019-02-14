@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rahi </title>
+
+    <style media="screen">
+      a{
+        background-color:red;
+        text-align:center;
+      }
+      a .hover{
+        background-color:yellow;
+      }
+      #left{
+        background-color:red;
+        width:100px;
+        height:200px;
+      }
+      #right{
+        background-color:green;
+        text-align:right;
+        width:100px;
+        height:200px;
+        margin-right:100%;
+
+      }
+    </style>
+  </head>
+  <body>
+
+  <a href="{% url 'login' %}"> <h1>go to login page</h1></a>
+
+
+<ul id='left'>
+  <li id="home">Home</li>
+  <li id="about">About</li>
+  <li id="contact">Contact</li>
+
+</ul>
+<ul id='right'>
+  <li id="home">Home</li>
+  <li id="about">About</li>
+  <li id="contact">Contact</li>
+
+</ul>
+<script type="text/javascript">
+  var p=document.querySelector("a")
+  p.addEventListener("mouseover",function(){
+    p.style.color="green"
+
+  })
+
+   var h=document.querySelector('#home')
+   h.addEventListener('click',function(){
+     h.style.color="blue"
+   })
+   var a =document.querySelector("#about")
+   a.addEventListener('click',function(){
+     a.style.color="blue"
+   })
+   var c=document.querySelector('#contact')
+   c.addEventListener('click',function(){
+     c.style.color='blue'
+   })
+
+</script>
+
+
+
+
+  </body>
+</html>

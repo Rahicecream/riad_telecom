@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+
+
+{% block body %}
+
+{% with request.resolver_match.url_name as url_name %}
+
+<form action="{% url 'personal_give' %}" method="POST">
+  {% csrf_token %}
+<!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+  <div class="wizard-header">
+      <h3>
+         <b>Personal </b> Transaction <br>
+         <small>Please insert transaction name and Get amount</small>
+      </h3>
+  </div>
+
+<div class="">
+<ul>
+          <li><a class="{% if url_name == 'personal_get' %}active {% endif %}" href="{% url 'personal_get' %}"><h1>নগদ গ্রহণ</h1><span class="sr-only">(current)</span></a></li>
+
+          <li>        <a class="{% if url_name == 'personal_give' %}active{% endif %}" href="{% url 'personal_give' %}" id='active'><h1> নগদ প্রদান</h1><span class="sr-only">(current)</span></a>
+</li>
+      </ul>
+
+</div>
+
+
+        <div class="tab-pane" id="address">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="info-text">  </h4>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                     <div class="form-group">
+                       <label for="personal_give_name">হিসাব নাম :</label>
+                        <input type="text" name="personal_give_name" class="form-control" placeholder="" required>
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                     <div class="form-group">
+                       <label for="personal_give_amount">টাকা :</label>
+                        <input type="text" name="personal_give_amount"  class="form-control" placeholder="" required>
+                      </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+        <div class="pull-right">
+
+          <div class="container-login100-form-btn">
+
+           	<button type='submit' class="login100-form-btn">
+           submit
+           </button>
+           </a>
+          </div>
+
+
+
+
+      </div>
+    </div>
+
+
+</form>
+{% endwith %}
+
+
+
+ {% endblock %}

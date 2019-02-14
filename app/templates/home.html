@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+
+
+{% block home %}
+
+
+<br><br>
+<div class="pull-left">
+
+  <a href="{% url 'home' %}">	<button class="login100-form-btn">
+      Riad Telecom
+    </button>
+    </a>
+
+  </div
+  <br><br>
+
+
+
+      <div class="container"><br>
+          <h2>Transaction Summary</h2>
+          <hr>
+
+          <table class="table table-white">
+              <thead>
+                  <tr>
+                    {% if request.user.is_superuser %}
+                  <th>ব্যাংক</th>
+                    <th>সিমেন্ট</th>
+                    <th>ব্যাক্তিগত</th>
+                      {% endif %}
+
+                 <th>টেলিকম</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+
+                      <tr>
+                        {% if request.user.is_superuser %}
+                           <td> ব্যাংক মোট গ্রহণ . : {{ total_bank_get }} টাকা<br> ব্যাংক মোট প্রদান : {{ total_bank_give }}   টাকা <br>
+                            ---------------------------------------<br> ব্যাংক মোট জমা : {{ bank_cash }}  টাকা </td>
+
+                            <td>সিমেন্ট মোট গ্রহণ . : {{ total_cement_get }}   টাকা<br> সিমেন্ট মোট প্রদান : {{ total_cement_give }}   টাকা<br>
+                            ---------------------------------------<br>সিমেন্ট মোট জমা :{{ cement_cash }}  টাকা </td>
+
+                            <td>ব্যাক্তিগত মোট গ্রহণ . : {{ total_personal_get }}   টাকা<br> ব্যাক্তিগত মোট প্রদান :  {{ total_personal_give }}   টাকা<br>
+                            ---------------------------------------<br> ব্যাক্তিগত মোট জমা : {{ personal_cash }}  টাকা </td>
+                          {% endif %}
+                            <td>টেলিকম মোট গ্রহণ . : {{ total_telecom_get }}   টাকা<br> টেলিকম মোট প্রদান : {{ total_telecom_give }}   টাকা <br>
+                            ---------------------------------------<br> টেলিকম মোট জমা : {{ telecom_cash }}  টাকা </td>
+
+
+                          </tr>
+                  </tr>
+
+
+              </tbody>
+          </table>
+
+      </div>
+
+
+
+
+
+
+ {% endblock %}
